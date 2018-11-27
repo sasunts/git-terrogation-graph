@@ -1,1 +1,27 @@
-"{ \"name\":\"John\", \"age\":30, \"city\":\"New York\"}"
+{
+  "name": "Max",
+  "value": 100,
+  "children": [
+    {
+      "name": "Best",
+      "value": 75,
+      "children": [
+        {"name": "Mathew", "value":25},
+        {"name": "Mark", "value":25},
+        {"name": "Luke", "value":25}
+      ]
+    },
+    {
+      "name": "John",
+      "value":75,
+      "children":[
+        {"name":"Paul", "value":25},
+        {"name":"Peter", "value":25}
+      ]
+    },
+    {
+      "name":"Mary",
+      "value":75
+    }
+  ]
+}
