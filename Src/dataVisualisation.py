@@ -1,17 +1,36 @@
 from github import Github
-import json
+import getpass
 
 
-g = Github("aef65f876c340d835af0b469df6db362fa031a9b")
-x =  '{ "name":"John", "age":30, "city":"New York"}'
+def main():
+    user = False
+    while(not user):
+        username = input("Enter your Github Username:\n")
+        password = getpass.getpass(prompt='Enter your password:\n')
+        try:
+            g = Github(username, password)
+            user = True
+        except:
+            print("Try again")
+        usernameList = []
+        totalCommitList = []
+        myList = g.get_repo("bitcoin/bitcoin").get_stats_contributors()
+        for elements in myList:
+            usernameList.append( str(elements.author).replace("NamedUser(login=\"", "").replace("\")",""))
+            totalCommitList.append(elements.total)
 
-with open('data.json', 'w') as outfile:
-    json.dump(x, outfile)
 
-# for repo in g.get_user().get_repos():
-#     print("\n"+repo.name)
-#
-# print(g.get_user().login)
-#
-# myList = g.get_repo("sasunts/Lowest-common-ancestor").get_topics()
-# print(myList, sep='\n')
+        i = 70
+        f = open("data.json", "w")
+        f.write("{\"name\": \"Max\",\"value\": 2000,\"children\": [")
+        while i < len(usernameList)-1:
+            f = open("data.json", "a")
+            f.write("{\"name\":"+"\""+usernameList[i]+"\","+"\"value\":"+str(totalCommitList[i])+"}," )
+            i += 1
+        f = open("data.json", "a")
+        f.write("{\"name\":"+"\""+usernameList[len(usernameList)-1]+"\"," + "\"value\":"+str(totalCommitList[len(usernameList)-1])+
+        "}]}")
+        print("Json file outputted")
+
+if __name__== "__main__":
+  main()
