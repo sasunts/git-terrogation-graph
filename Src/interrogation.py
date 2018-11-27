@@ -5,13 +5,28 @@
 #it shows data about the logged in developer.
 
 from github import Github
+import getpass
 
-g = Github("aef65f876c340d835af0b469df6db362fa031a9b")
 
-for repo in g.get_user().get_repos():
-    print("\n"+repo.name)
+def main():
+    user = False
+    while(not user):
+        username = input("Enter your Github Username:\n")
+        password = getpass.getpass(prompt='Enter your password:\n')
+        try:
+            g = Github(username, password)
+            user = True
+        except:
+            print("Try again")
 
-print(g.get_user().login)
 
-myList = g.get_repo("sasunts/Lowest-common-ancestor").get_topics()
-print(*myList, sep='\n')
+        for repo in g.get_user().get_repos():
+            print("\n"+repo.name)
+
+        print(g.get_user().login)
+
+        myList = g.get_repo("sasunts/Lowest-common-ancestor").get_topics()
+        print(*myList, sep=', ')
+
+if __name__== "__main__":
+  main()
