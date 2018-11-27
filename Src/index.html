@@ -11,13 +11,13 @@
       var color = d3.scale.category10();
 
       var canvas = d3.select("body").append("svg")
-        .attr("width",800)
-        .attr("height",800);
+        .attr("width",900)
+        .attr("height",900);
 
       d3.json("data.json",function (data){
 
           var treemap = d3.layout.treemap()
-            .size([800,800])
+            .size([900,900])
             .nodes(data)
 
           var cells = canvas.selectAll(".cells")
@@ -33,14 +33,44 @@
             .attr("height", function (d) {return d.dy;})
             .attr("fill", function (d) {return d.children ? null : color(d.parent.name); })
             .attr("stroke", "#fff")
+            .on("mouseover", handleMouseOver)
+            .on("mouseout", handleMouseOut);
 
 
           cells.append("text")
             .attr("x", function (d){return d.x + d.dx /2})
             .attr("y", function (d){return d.y + d.dy /2})
             .attr("text-acnhor", "middle")
-            .text(function (d) {return d.children ? null : d.name +" commits: "+ d.value;})
+            .text(function (d) {return d.children ? null : d.name;})
         })
+
+        function handleMouseOver(d, i) {  // Add interactivity
+
+            // Use D3 to select element, change color and size
+            d3.select(this).attr({
+              fill: "orange"
+            });
+
+            // Specify where to put label of text
+            svg.append("text").attr({
+               id: "t" + d.x + "-" + d.y + "-" + i,  // Create an id for text so we can select it later for removing on mouseout
+                x: function() { return xScale(d.x) - 30; },
+                y: function() { return yScale(d.y) - 15; }
+            })
+            .text(function() {
+              return [d.x, d.y];  // Value of the text
+            });
+          }
+
+      function handleMouseOut(d, i) {
+            // Use D3 to select element, change color back to normal
+            d3.select(this).attr({
+              fill: color(d.parent.name),
+            });
+
+            // Select text by id and then remove
+            d3.select("#t" + d.x + "-" + d.y + "-" + i).remove();  // Remove text location
+          }
 
     </script>
   </body>
