@@ -1,0 +1,2 @@
+python dataVisualisation.py %*
+pause  %*
