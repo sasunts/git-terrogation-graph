@@ -8,14 +8,15 @@ Software Engineering Project
 
 
 ### Complete:
-* `interrogation.py` is made to complete the first part of the task. This allows me to
+##### Task 1
+ `interrogation.py` is made to complete the first part of the task. This allows me to
 login with my GitHub account and will print on the console with a few details such as
 all my repos, my username and the topics of my Lowest common ancestor repo. I will improve
 this by creating a menu with switch cases of all of my repos and the user can chose which
 repo to print topics about.
 
-
-* For the Github visualisation project I decided to look at a popular repo and one I found interesting
+##### Task 2
+For the Github visualisation project I decided to look at a popular repo and one I found interesting
 was the bitcoin repo. When you run `run.sh` or `winRun.bat`, you will be prompted to enter your GitHub
 credentials and this is to generate an instance of Github in python. Once this is done the `dataVisualisation.py`
 will run and generate an up to date JSON file which contains the author of the committer and the commit count.
