@@ -31,5 +31,8 @@ the code in. Then simply type `localhost` in your browser and you're good to go!
 
 
 ### Example
-
+When opened.
 ![alt text](https://github.com/sasunts/git-terrogation-graph/blob/master/img/gitscreenshot1.png)
+
+Mouse on hover over a rectangle:
+![alt text](https://github.com/sasunts/git-terrogation-graph/blob/master/img/gitscreen2.png)
