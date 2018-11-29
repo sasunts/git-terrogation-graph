@@ -36,3 +36,4 @@ When opened.
 
 Mouse on hover over a rectangle:
 ![alt text](https://github.com/sasunts/git-terrogation-graph/blob/master/img/gitscreen2.png)
+*Note* The total commit is pushed more to the left in order to fit the text in all rectangles.
