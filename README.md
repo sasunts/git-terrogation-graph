@@ -28,3 +28,8 @@ a lot of contributors I decided to show the top 30 of them.
 In order to get the website loading you must first install XAMPP, and run a local Apache server and either put
 the files into the XAMPP install directory in htdocs or point the local server directory to the folder you have
 the code in. Then simply type `localhost` in your browser and you're good to go!
+
+
+### Example
+
+![alt text](https://github.com/sasunts/git-terrogation-graph/blob/master/img/gitscreenshot1.png)
