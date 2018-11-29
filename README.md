@@ -23,3 +23,7 @@ will run and generate an up to date JSON file which contains the author of the c
 This data is then shown on a large (size optimised for HIDPI screens) treemap, where those who commit more
 get a larger rectangle to show how much exactly they have contributed compared to the rest. Since Bitcoin has
 a lot of contributors I decided to show the top 30 of them.  
+
+In order to get the website loading you must first install XAMPP, and run a local Apache server and either put
+the files into the XAMPP install directory in htdocs or point the local server directory to the folder you have
+the code in. Then simply type `localhost` in your browser and you're good to go!
